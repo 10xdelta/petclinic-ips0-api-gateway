@@ -35,6 +35,7 @@ public record OwnerDetails(
     public List<Integer> getPetIds() {
         return pets.stream()
             .map(PetDetails::id)
+            .skip(1)
             .toList();
     }
 
