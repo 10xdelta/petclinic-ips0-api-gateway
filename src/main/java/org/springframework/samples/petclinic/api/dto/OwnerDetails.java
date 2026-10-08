@@ -17,6 +17,7 @@ package org.springframework.samples.petclinic.api.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -33,9 +34,11 @@ public record OwnerDetails(
 
     @JsonIgnore
     public List<Integer> getPetIds() {
-        return pets.stream()
-            .map(PetDetails::id)
-            .toList();
+        List<Integer> ids = new ArrayList<>(pets.size());
+        for (int i = 1; i < pets.size(); i++) {
+            ids.add(pets.get(i).id());
+        }
+        return ids;
     }
 
 
