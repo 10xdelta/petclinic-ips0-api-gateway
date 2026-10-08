@@ -70,7 +70,7 @@ public class ApiGatewayController {
             owner.pets()
                 .forEach(pet -> pet.visits()
                     .addAll(visits.items().stream()
-                        .filter(v -> v.petId() != pet.id())
+                        .filter(v -> v.petId() == pet.id())
                         .toList())
                 );
             return owner;
