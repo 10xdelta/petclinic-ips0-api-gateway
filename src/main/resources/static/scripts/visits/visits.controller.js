@@ -13,6 +13,7 @@ angular.module('visits')
         });
 
         self.submit = function () {
+            // The date chosen on the form is sent as is; the visits service keeps it.
             var data = {
                 date: $filter('date')(self.date, "yyyy-MM-dd"),
                 description: self.desc
